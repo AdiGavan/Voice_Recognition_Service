@@ -32,7 +32,7 @@ def recognize_voice():
         print(text['alternative'][0]['transcript'])
         
         #except Exception as e:
-        translated = False
+        #translated = False
         #print('ERRRORRRRR ' + str(e))
     
     if not translated:
