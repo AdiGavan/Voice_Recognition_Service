@@ -14,7 +14,7 @@ metrics.info('app_info_voice_recognition', 'Application info', version='1.0.0')
 @app.route('/', methods=['POST'])
 def recognize_voice():
     
-    videofile = flask.request.files['video']
+    videofile = request.files['video']
     filename = werkzeug.utils.secure_filename['video']
     videofile.save(os.path.join("/usr/src/app/", filename))
     os.system('ffmpeg -i ' + os.path.join("/usr/src/app/", filename) + ' /usr/src/app/translate.wav')
