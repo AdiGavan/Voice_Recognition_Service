@@ -33,7 +33,7 @@ def recognize_voice():
         
         #except Exception as e:
         translated = False
-        print('ERRRORRRRR ' + str(e))
+        #print('ERRRORRRRR ' + str(e))
     
     if not translated:
         status = "Failed"
