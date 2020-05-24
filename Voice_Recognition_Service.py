@@ -25,15 +25,15 @@ def recognize_voice():
 
     with sr.AudioFile('/usr/src/app/translate.wav') as source:
         audio = r.listen(source)
-        try:
-            text = r.recognize_google(audio, language = 'en-US', show_all = True)
-            response = str(text['alternative'][0]['transcript'])
+        #try:
+        text = r.recognize_google(audio, language = 'en-US', show_all = True)
+        response = str(text['alternative'][0]['transcript'])
         #response = json.dumps(text, ensure_ascii=False).encode('utf8')
-            print(text['alternative'][0]['transcript'])
+        print(text['alternative'][0]['transcript'])
         
-        except Exception as e:
-            translated = False
-            print('ERRRORRRRR ' + str(e))
+        #except Exception as e:
+        translated = False
+        print('ERRRORRRRR ' + str(e))
     
     if not translated:
         status = "Failed"
