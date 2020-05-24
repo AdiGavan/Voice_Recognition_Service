@@ -27,7 +27,7 @@ def recognize_voice():
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio, language = 'en-US', show_all = True)
-            response = text['alternative'][0]['transcript']
+            response = str(text['alternative'][0]['transcript'])
         #response = json.dumps(text, ensure_ascii=False).encode('utf8')
         #print(text['alternative'][0]['transcript'])
         
