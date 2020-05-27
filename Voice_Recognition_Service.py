@@ -28,24 +28,21 @@ def recognize_voice():
         try:
             text = r.recognize_google(audio, language = 'en-US', show_all = True)
             response = str(text['alternative'][0]['transcript'])
-        #response = json.dumps(text, ensure_ascii=False).encode('utf8')
-        #print(text['alternative'][0]['transcript'])
         
         except:
             translated = False
-        #print('ERRRORRRRR ' + str(e))
     
     if not translated:
         status = "Failed"
-        error = "Error while recognizing the voice."
+        message = "Error while recognizing the voice."
 
     else:
         status = "Success"
-        error = response
+        message = response
 
     os.remove('/usr/src/app/translate.wav')
 
-    return jsonify({"status" : status, "error" : error})
+    return jsonify({"status" : status, "message" : message})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
